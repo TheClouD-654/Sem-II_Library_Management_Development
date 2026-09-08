@@ -1,0 +1,5 @@
+01|Arunangshu|Student
+02|Tarun|Student
+03|Raghav|Student
+04|Pramendra|Student
+05|Dr. Yasotha R|Faculty

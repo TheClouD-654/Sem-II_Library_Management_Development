@@ -1,0 +1,177 @@
+{
+  "_type": "Project",
+  "_id": "PROJECT_BOOKVAULT_SIMPLE",
+  "name": "BookVault Simple UML",
+  "ownedElements": [
+    {
+      "_type": "UMLModel",
+      "_id": "MODEL_BOOKVAULT_SIMPLE",
+      "name": "BookVault Simple Model",
+      "ownedElements": [
+        {
+          "_type": "UMLClass",
+          "_id": "CLASS_BOOK",
+          "name": "Book",
+          "attributes": [
+            { "_type": "UMLAttribute", "_id": "BOOK_ATTR_ID", "name": "bookId", "visibility": "private", "type": "string" },
+            { "_type": "UMLAttribute", "_id": "BOOK_ATTR_TITLE", "name": "title", "visibility": "private", "type": "string" },
+            { "_type": "UMLAttribute", "_id": "BOOK_ATTR_AUTHOR", "name": "author", "visibility": "private", "type": "string" },
+            { "_type": "UMLAttribute", "_id": "BOOK_ATTR_BOOKED", "name": "booked", "visibility": "private", "type": "bool" }
+          ],
+          "operations": [
+            { "_type": "UMLOperation", "_id": "BOOK_OP_CTOR1", "name": "Book", "visibility": "public" },
+            { "_type": "UMLOperation", "_id": "BOOK_OP_CTOR2", "name": "Book", "visibility": "public" },
+            { "_type": "UMLOperation", "_id": "BOOK_OP_GETID", "name": "getBookId", "visibility": "public", "returnType": "string" },
+            { "_type": "UMLOperation", "_id": "BOOK_OP_GETTITLE", "name": "getTitle", "visibility": "public", "returnType": "string" },
+            { "_type": "UMLOperation", "_id": "BOOK_OP_GETAUTHOR", "name": "getAuthor", "visibility": "public", "returnType": "string" },
+            { "_type": "UMLOperation", "_id": "BOOK_OP_ISBOOKED", "name": "isBooked", "visibility": "public", "returnType": "bool" },
+            { "_type": "UMLOperation", "_id": "BOOK_OP_ISSUE", "name": "issueBook", "visibility": "public", "returnType": "void" },
+            { "_type": "UMLOperation", "_id": "BOOK_OP_RETURN", "name": "returnBook", "visibility": "public", "returnType": "void" },
+            { "_type": "UMLOperation", "_id": "BOOK_OP_DISPLAY", "name": "displayBook", "visibility": "public", "returnType": "void" }
+          ]
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "CLASS_MEMBER",
+          "name": "Member",
+          "isAbstract": true,
+          "attributes": [
+            { "_type": "UMLAttribute", "_id": "MEMBER_ATTR_ID", "name": "memberId", "visibility": "private", "type": "string" },
+            { "_type": "UMLAttribute", "_id": "MEMBER_ATTR_NAME", "name": "name", "visibility": "private", "type": "string" },
+            { "_type": "UMLAttribute", "_id": "MEMBER_ATTR_BORROWED", "name": "borrowedBookIds", "visibility": "private", "type": "vector<string>" }
+          ],
+          "operations": [
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_CTOR1", "name": "Member", "visibility": "public" },
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_CTOR2", "name": "Member", "visibility": "public" },
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_DTOR", "name": "~Member", "visibility": "public" },
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_GETID", "name": "getMemberId", "visibility": "public", "returnType": "string" },
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_GETNAME", "name": "getName", "visibility": "public", "returnType": "string" },
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_GETTYPE", "name": "getMemberType", "visibility": "public", "returnType": "string", "isAbstract": true },
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_COUNT", "name": "getBorrowedCount", "visibility": "public", "returnType": "int" },
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_LIMIT", "name": "getBorrowLimit", "visibility": "public", "returnType": "int", "isAbstract": true },
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_HAS", "name": "hasBorrowedBook", "visibility": "public", "returnType": "bool" },
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_BORROW", "name": "borrowBook", "visibility": "public", "returnType": "void" },
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_RETURN", "name": "returnBorrowedBook", "visibility": "public", "returnType": "void" },
+            { "_type": "UMLOperation", "_id": "MEMBER_OP_DISPLAY", "name": "displayMember", "visibility": "public", "returnType": "void" }
+          ]
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "CLASS_STUDENT_MEMBER",
+          "name": "StudentMember",
+          "attributes": [],
+          "operations": [
+            { "_type": "UMLOperation", "_id": "STUDENT_OP_CTOR", "name": "StudentMember", "visibility": "public" },
+            { "_type": "UMLOperation", "_id": "STUDENT_OP_GETTYPE", "name": "getMemberType", "visibility": "public", "returnType": "string" },
+            { "_type": "UMLOperation", "_id": "STUDENT_OP_LIMIT", "name": "getBorrowLimit", "visibility": "public", "returnType": "int" }
+          ]
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "CLASS_FACULTY_MEMBER",
+          "name": "FacultyMember",
+          "attributes": [],
+          "operations": [
+            { "_type": "UMLOperation", "_id": "FACULTY_OP_CTOR", "name": "FacultyMember", "visibility": "public" },
+            { "_type": "UMLOperation", "_id": "FACULTY_OP_GETTYPE", "name": "getMemberType", "visibility": "public", "returnType": "string" },
+            { "_type": "UMLOperation", "_id": "FACULTY_OP_LIMIT", "name": "getBorrowLimit", "visibility": "public", "returnType": "int" }
+          ]
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "CLASS_LIBRARY",
+          "name": "Library",
+          "attributes": [
+            { "_type": "UMLAttribute", "_id": "LIB_ATTR_BOOKS", "name": "books", "visibility": "private", "type": "vector<Book>" },
+            { "_type": "UMLAttribute", "_id": "LIB_ATTR_MEMBERS", "name": "members", "visibility": "private", "type": "vector<shared_ptr<Member>>" }
+          ],
+          "operations": [
+            { "_type": "UMLOperation", "_id": "LIB_OP_FIND_BOOK", "name": "findBookIndex", "visibility": "public", "returnType": "int" },
+            { "_type": "UMLOperation", "_id": "LIB_OP_FIND_MEMBER", "name": "findMemberIndex", "visibility": "public", "returnType": "int" },
+            { "_type": "UMLOperation", "_id": "LIB_OP_ADD_BOOK", "name": "addBook", "visibility": "public", "returnType": "bool" },
+            { "_type": "UMLOperation", "_id": "LIB_OP_REGISTER", "name": "registerMember", "visibility": "public", "returnType": "bool" },
+            { "_type": "UMLOperation", "_id": "LIB_OP_DISPLAY_BOOKS", "name": "displayBooks", "visibility": "public", "returnType": "void" },
+            { "_type": "UMLOperation", "_id": "LIB_OP_DISPLAY_MEMBERS", "name": "displayMembers", "visibility": "public", "returnType": "void" },
+            { "_type": "UMLOperation", "_id": "LIB_OP_BORROW", "name": "borrowBook", "visibility": "public", "returnType": "void" },
+            { "_type": "UMLOperation", "_id": "LIB_OP_RETURN", "name": "returnBook", "visibility": "public", "returnType": "void" }
+          ]
+        },
+        {
+          "_type": "UMLClass",
+          "_id": "CLASS_APPLICATION",
+          "name": "Application",
+          "stereotype": "utility",
+          "attributes": [],
+          "operations": [
+            { "_type": "UMLOperation", "_id": "APP_OP_SPLIT", "name": "splitLine", "visibility": "public", "returnType": "vector<string>" },
+            { "_type": "UMLOperation", "_id": "APP_OP_READTEXT", "name": "readText", "visibility": "public", "returnType": "string" },
+            { "_type": "UMLOperation", "_id": "APP_OP_READCHOICE", "name": "readChoice", "visibility": "public", "returnType": "int" },
+            { "_type": "UMLOperation", "_id": "APP_OP_CREATEMEMBER", "name": "createMemberFromChoice", "visibility": "public", "returnType": "shared_ptr<Member>" },
+            { "_type": "UMLOperation", "_id": "APP_OP_CREATEMEMBERTYPE", "name": "createMemberFromType", "visibility": "public", "returnType": "shared_ptr<Member>" },
+            { "_type": "UMLOperation", "_id": "APP_OP_ROLEMENU", "name": "showRoleMenu", "visibility": "public", "returnType": "void" },
+            { "_type": "UMLOperation", "_id": "APP_OP_STAFFMENU", "name": "showStaffMenu", "visibility": "public", "returnType": "void" },
+            { "_type": "UMLOperation", "_id": "APP_OP_VISITORMENU", "name": "showVisitorMenu", "visibility": "public", "returnType": "void" },
+            { "_type": "UMLOperation", "_id": "APP_OP_SAVEBOOK", "name": "saveBookToFile", "visibility": "public", "returnType": "bool" },
+            { "_type": "UMLOperation", "_id": "APP_OP_SAVEMEMBER", "name": "saveMemberToFile", "visibility": "public", "returnType": "bool" },
+            { "_type": "UMLOperation", "_id": "APP_OP_LOADBOOKS", "name": "loadBooksFromFile", "visibility": "public", "returnType": "Library" },
+            { "_type": "UMLOperation", "_id": "APP_OP_LOADMEMBERS", "name": "loadMembersFromFile", "visibility": "public", "returnType": "Library" },
+            { "_type": "UMLOperation", "_id": "APP_OP_ADDBOOKINPUT", "name": "addBookFromInput", "visibility": "public", "returnType": "Library" },
+            { "_type": "UMLOperation", "_id": "APP_OP_REGISTERINPUT", "name": "registerNewMember", "visibility": "public", "returnType": "Library" },
+            { "_type": "UMLOperation", "_id": "APP_OP_BORROWINPUT", "name": "borrowBookFromInput", "visibility": "public", "returnType": "Library" },
+            { "_type": "UMLOperation", "_id": "APP_OP_RETURNINPUT", "name": "returnBookFromInput", "visibility": "public", "returnType": "Library" },
+            { "_type": "UMLOperation", "_id": "APP_OP_RUNSTAFF", "name": "runStaffMenu", "visibility": "public", "returnType": "Library" },
+            { "_type": "UMLOperation", "_id": "APP_OP_RUNVISITOR", "name": "runVisitorMenu", "visibility": "public", "returnType": "Library" }
+          ]
+        },
+        {
+          "_type": "UMLGeneralization",
+          "_id": "GEN_STUDENT_MEMBER",
+          "source": { "$ref": "CLASS_STUDENT_MEMBER" },
+          "target": { "$ref": "CLASS_MEMBER" }
+        },
+        {
+          "_type": "UMLGeneralization",
+          "_id": "GEN_FACULTY_MEMBER",
+          "source": { "$ref": "CLASS_FACULTY_MEMBER" },
+          "target": { "$ref": "CLASS_MEMBER" }
+        },
+        {
+          "_type": "UMLDependency",
+          "_id": "DEP_LIBRARY_BOOK",
+          "client": { "$ref": "CLASS_LIBRARY" },
+          "supplier": { "$ref": "CLASS_BOOK" }
+        },
+        {
+          "_type": "UMLDependency",
+          "_id": "DEP_LIBRARY_MEMBER",
+          "client": { "$ref": "CLASS_LIBRARY" },
+          "supplier": { "$ref": "CLASS_MEMBER" }
+        },
+        {
+          "_type": "UMLDependency",
+          "_id": "DEP_APP_BOOK",
+          "client": { "$ref": "CLASS_APPLICATION" },
+          "supplier": { "$ref": "CLASS_BOOK" }
+        },
+        {
+          "_type": "UMLDependency",
+          "_id": "DEP_APP_MEMBER",
+          "client": { "$ref": "CLASS_APPLICATION" },
+          "supplier": { "$ref": "CLASS_MEMBER" }
+        },
+        {
+          "_type": "UMLDependency",
+          "_id": "DEP_APP_LIBRARY",
+          "client": { "$ref": "CLASS_APPLICATION" },
+          "supplier": { "$ref": "CLASS_LIBRARY" }
+        }
+      ]
+    },
+    {
+      "_type": "UMLClassDiagram",
+      "_id": "DIAGRAM_BOOKVAULT_SIMPLE",
+      "name": "BookVault Class Diagram",
+      "ownedViews": []
+    }
+  ]
+}

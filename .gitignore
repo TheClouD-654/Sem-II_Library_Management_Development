@@ -1,0 +1,8 @@
+# Compiled C++ programs
+*.exe
+
+# Compressed duplicate of the Storage directory
+*.rar
+
+# Editor-specific local settings
+.vscode/
